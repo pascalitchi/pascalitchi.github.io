@@ -884,13 +884,13 @@ button {
     padding: 10px 20px;
     margin-left: 10px;
     border: none;
-    background-color: #007bff;
+    background-color: #1F3246;
     color: white;
     cursor: pointer;
     border-radius: 15px; /* Slightly rounded corners for the button */
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #1F3246;
 }
 
