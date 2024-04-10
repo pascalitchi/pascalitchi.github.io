@@ -60,7 +60,7 @@
   }
 
   .figure.active .top, .figure.active .bottom {
-    transform: rotateX(180deg);
+    transform: rotateX(180deg) translateY(-50%);
   }
 
   .top {
@@ -207,7 +207,7 @@ var x = setInterval(function() {
   // If the count down is finished, write some text
   if (distance < 0) {
     clearInterval(x);
-    document.getElementById("countdown").innerHTML = "Wedding Celebration Time!";
+    document.getElementById("countdown").innerHTML = "Wedding celebration time!";
   }
 }, 1000);
 </script>
