@@ -57,6 +57,8 @@
     height: 50%;
     transform-style: preserve-3d;
     transition: transform 0.8s;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   .figure.active .top, .figure.active .bottom {
@@ -84,7 +86,7 @@
   }
 
   .top.active .top-back, .bottom.active .bottom-back {
-    transform: rotateX(0deg);
+    transform: rotateX(0deg) translateY(-100%);
   }
 </style>
 </head>
