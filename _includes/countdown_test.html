@@ -85,9 +85,21 @@
     transform: rotateX(180deg);
   }
 
-  .top.active .top-back, .bottom.active .bottom-back {
-    transform: rotateX(0deg) translateY(-100%);
-  }
+ /* Set the height and top to 50% for vertical centering */
+.top.active, .bottom.active, .top-back.active, .bottom-back.active {
+    top: 50%;
+    height: 50%;
+}
+
+/* Set the transform to center the content vertically and horizontally */
+.top.active, .top-back.active {
+    transform: translateY(-50%);
+}
+
+.bottom.active, .bottom-back.active {
+    transform: translateY(50%);
+}
+
 </style>
 </head>
 <body>
