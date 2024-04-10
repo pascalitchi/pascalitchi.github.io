@@ -48,35 +48,43 @@
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
   }
 
   .top, .bottom, .top-back, .bottom-back {
-    display: none; /* Initially hide the values */
     position: absolute;
     width: 100%;
-    height: 100%;
-    border-radius: 5px;
+    height: 50%;
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
   }
 
-  .top.active, .bottom.active {
-    display: block; /* Display the active value */
-    z-index: 10;
-    color: #333;
-  }
-
-  .bottom, .bottom-back {
-    color: #333;
+  .figure.active .top, .figure.active .bottom {
     transform: rotateX(180deg);
-    z-index: 0;
+  }
+
+  .top {
+    transform-origin: top;
+    backface-visibility: hidden;
+  }
+
+  .bottom {
+    bottom: 0;
+    transform-origin: bottom;
+    backface-visibility: hidden;
   }
 
   .top-back, .bottom-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
     background-color: rgba(255, 255, 255, 0.7);
+    backface-visibility: hidden;
     transform: rotateX(180deg);
   }
 
-  .sec {
-    margin-right: 0;
+  .top.active .top-back, .bottom.active .bottom-back {
+    transform: rotateX(0deg);
   }
 </style>
 </head>
@@ -89,25 +97,17 @@
       <span class="count-title">Days</span>
 
       <div class="figure days days-1">
-        <span class="top">0</span>
-        <span class="top-back">
-          <span>0</span>
-        </span>
-        <span class="bottom">0</span>
-        <span class="bottom-back">
-          <span>0</span>
-        </span>
+        <span class="top"></span>
+        <span class="bottom"></span>
+        <span class="top-back"></span>
+        <span class="bottom-back"></span>
       </div>
 
       <div class="figure days days-2">
-        <span class="top">0</span>
-        <span class="top-back">
-          <span>0</span>
-        </span>
-        <span class="bottom">0</span>
-        <span class="bottom-back">
-          <span>0</span>
-        </span>
+        <span class="top"></span>
+        <span class="bottom"></span>
+        <span class="top-back"></span>
+        <span class="bottom-back"></span>
       </div>
     </div>
 
@@ -115,25 +115,17 @@
       <span class="count-title">Hours</span>
 
       <div class="figure hours hours-1">
-        <span class="top">2</span>
-        <span class="top-back">
-          <span>2</span>
-        </span>
-        <span class="bottom">2</span>
-        <span class="bottom-back">
-          <span>2</span>
-        </span>
+        <span class="top"></span>
+        <span class="bottom"></span>
+        <span class="top-back"></span>
+        <span class="bottom-back"></span>
       </div>
 
       <div class="figure hours hours-2">
-        <span class="top">4</span>
-        <span class="top-back">
-          <span>4</span>
-        </span>
-        <span class="bottom">4</span>
-        <span class="bottom-back">
-          <span>4</span>
-        </span>
+        <span class="top"></span>
+        <span class="bottom"></span>
+        <span class="top-back"></span>
+        <span class="bottom-back"></span>
       </div>
     </div>
 
@@ -141,25 +133,17 @@
       <span class="count-title">Minutes</span>
 
       <div class="figure min min-1">
-        <span class="top">0</span>
-        <span class="top-back">
-          <span>0</span>
-        </span>
-        <span class="bottom">0</span>
-        <span class="bottom-back">
-          <span>0</span>
-        </span>        
+        <span class="top"></span>
+        <span class="bottom"></span>
+        <span class="top-back"></span>
+        <span class="bottom-back"></span>
       </div>
 
       <div class="figure min min-2">
-       <span class="top">0</span>
-        <span class="top-back">
-          <span>0</span>
-        </span>
-        <span class="bottom">0</span>
-        <span class="bottom-back">
-          <span>0</span>
-        </span>
+        <span class="top"></span>
+        <span class="bottom"></span>
+        <span class="top-back"></span>
+        <span class="bottom-back"></span>
       </div>
     </div>
 
@@ -167,25 +151,17 @@
       <span class="count-title">Seconds</span>
 
         <div class="figure sec sec-1">
-        <span class="top">0</span>
-        <span class="top-back">
-          <span>0</span>
-        </span>
-        <span class="bottom">0</span>
-        <span class="bottom-back">
-          <span>0</span>
-        </span>          
+        <span class="top"></span>
+        <span class="bottom"></span>
+        <span class="top-back"></span>
+        <span class="bottom-back"></span>
       </div>
 
       <div class="figure sec sec-2">
-        <span class="top">0</span>
-        <span class="top-back">
-          <span>0</span>
-        </span>
-        <span class="bottom">0</span>
-        <span class="bottom-back">
-          <span>0</span>
-        </span>
+        <span class="top"></span>
+        <span class="bottom"></span>
+        <span class="top-back"></span>
+        <span class="bottom-back"></span>
       </div>
     </div>
   </div>
@@ -210,56 +186,28 @@ var x = setInterval(function() {
   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-  // Display the result in the element with id="countdown"
+  // Update the countdown numbers
   document.querySelector(".days .days-1 .top").textContent = Math.floor(days / 10);
-  document.querySelector(".days .days-1 .bottom").textContent = Math.floor(days / 10);
-  document.querySelector(".days .days-1 .top-back span").textContent = Math.floor(days / 10);
-  document.querySelector(".days .days-1 .bottom-back span").textContent = Math.floor(days / 10);
-
   document.querySelector(".days .days-2 .top").textContent = days % 10;
-  document.querySelector(".days .days-2 .bottom").textContent = days % 10;
-  document.querySelector(".days .days-2 .top-back span").textContent = days % 10;
-  document.querySelector(".days .days-2 .bottom-back span").textContent = days % 10;
 
   document.querySelector(".hours .hours-1 .top").textContent = Math.floor(hours / 10);
-  document.querySelector(".hours .hours-1 .bottom").textContent = Math.floor(hours / 10);
-  document.querySelector(".hours .hours-1 .top-back span").textContent = Math.floor(hours / 10);
-  document.querySelector(".hours .hours-1 .bottom-back span").textContent = Math.floor(hours / 10);
-
   document.querySelector(".hours .hours-2 .top").textContent = hours % 10;
-  document.querySelector(".hours .hours-2 .bottom").textContent = hours % 10;
-  document.querySelector(".hours .hours-2 .top-back span").textContent = hours % 10;
-  document.querySelector(".hours .hours-2 .bottom-back span").textContent = hours % 10;
 
   document.querySelector(".min .min-1 .top").textContent = Math.floor(minutes / 10);
-  document.querySelector(".min .min-1 .bottom").textContent = Math.floor(minutes / 10);
-  document.querySelector(".min .min-1 .top-back span").textContent = Math.floor(minutes / 10);
-  document.querySelector(".min .min-1 .bottom-back span").textContent = Math.floor(minutes / 10);
-
   document.querySelector(".min .min-2 .top").textContent = minutes % 10;
-  document.querySelector(".min .min-2 .bottom").textContent = minutes % 10;
-  document.querySelector(".min .min-2 .top-back span").textContent = minutes % 10;
-  document.querySelector(".min .min-2 .bottom-back span").textContent = minutes % 10;
 
   document.querySelector(".sec .sec-1 .top").textContent = Math.floor(seconds / 10);
-  document.querySelector(".sec .sec-1 .bottom").textContent = Math.floor(seconds / 10);
-  document.querySelector(".sec .sec-1 .top-back span").textContent = Math.floor(seconds / 10);
-  document.querySelector(".sec .sec-1 .bottom-back span").textContent = Math.floor(seconds / 10);
-
   document.querySelector(".sec .sec-2 .top").textContent = seconds % 10;
-  document.querySelector(".sec .sec-2 .bottom").textContent = seconds % 10;
-  document.querySelector(".sec .sec-2 .top-back span").textContent = seconds % 10;
-  document.querySelector(".sec .sec-2 .bottom-back span").textContent = seconds % 10;
 
   // Add the active class to the current countdown numbers
-  document.querySelectorAll('.top, .bottom, .top-back span, .bottom-back span').forEach(function(element) {
+  document.querySelectorAll('.top, .bottom, .top-back, .bottom-back').forEach(function(element) {
     element.classList.add('active');
   });
 
   // If the count down is finished, write some text
   if (distance < 0) {
     clearInterval(x);
-    document.getElementById("countdown").innerHTML = "Wedding celebration time!";
+    document.getElementById("countdown").innerHTML = "Wedding Celebration Time!";
   }
 }, 1000);
 </script>
