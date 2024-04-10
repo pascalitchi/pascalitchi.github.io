@@ -51,14 +51,15 @@
   }
 
   .top, .bottom, .top-back, .bottom-back {
-    display: block;
+    display: none; /* Initially hide the values */
     position: absolute;
     width: 100%;
     height: 100%;
     border-radius: 5px;
   }
 
-  .top, .top-back {
+  .top.active, .bottom.active {
+    display: block; /* Display the active value */
     z-index: 10;
     color: #333;
   }
@@ -211,16 +212,49 @@ var x = setInterval(function() {
 
   // Display the result in the element with id="countdown"
   document.querySelector(".days .days-1 .top").textContent = Math.floor(days / 10);
+  document.querySelector(".days .days-1 .bottom").textContent = Math.floor(days / 10);
+  document.querySelector(".days .days-1 .top-back span").textContent = Math.floor(days / 10);
+  document.querySelector(".days .days-1 .bottom-back span").textContent = Math.floor(days / 10);
+
   document.querySelector(".days .days-2 .top").textContent = days % 10;
+  document.querySelector(".days .days-2 .bottom").textContent = days % 10;
+  document.querySelector(".days .days-2 .top-back span").textContent = days % 10;
+  document.querySelector(".days .days-2 .bottom-back span").textContent = days % 10;
 
   document.querySelector(".hours .hours-1 .top").textContent = Math.floor(hours / 10);
+  document.querySelector(".hours .hours-1 .bottom").textContent = Math.floor(hours / 10);
+  document.querySelector(".hours .hours-1 .top-back span").textContent = Math.floor(hours / 10);
+  document.querySelector(".hours .hours-1 .bottom-back span").textContent = Math.floor(hours / 10);
+
   document.querySelector(".hours .hours-2 .top").textContent = hours % 10;
+  document.querySelector(".hours .hours-2 .bottom").textContent = hours % 10;
+  document.querySelector(".hours .hours-2 .top-back span").textContent = hours % 10;
+  document.querySelector(".hours .hours-2 .bottom-back span").textContent = hours % 10;
 
   document.querySelector(".min .min-1 .top").textContent = Math.floor(minutes / 10);
+  document.querySelector(".min .min-1 .bottom").textContent = Math.floor(minutes / 10);
+  document.querySelector(".min .min-1 .top-back span").textContent = Math.floor(minutes / 10);
+  document.querySelector(".min .min-1 .bottom-back span").textContent = Math.floor(minutes / 10);
+
   document.querySelector(".min .min-2 .top").textContent = minutes % 10;
+  document.querySelector(".min .min-2 .bottom").textContent = minutes % 10;
+  document.querySelector(".min .min-2 .top-back span").textContent = minutes % 10;
+  document.querySelector(".min .min-2 .bottom-back span").textContent = minutes % 10;
 
   document.querySelector(".sec .sec-1 .top").textContent = Math.floor(seconds / 10);
+  document.querySelector(".sec .sec-1 .bottom").textContent = Math.floor(seconds / 10);
+  document.querySelector(".sec .sec-1 .top-back span").textContent = Math.floor(seconds / 10);
+  document.querySelector(".sec .sec-1 .bottom-back span").textContent = Math.floor(seconds / 10);
+
   document.querySelector(".sec .sec-2 .top").textContent = seconds % 10;
+  document.querySelector(".sec .sec-2 .bottom").textContent = seconds % 10;
+  document.querySelector(".sec .sec-2 .top-back span").textContent = seconds % 10;
+  document.querySelector(".sec .sec-2 .bottom-back span").textContent = seconds % 10;
+
+  // Add the active class to the current countdown numbers
+  document.querySelectorAll('.top, .bottom, .top-back span, .bottom-back span').forEach(function(element) {
+    element.classList.add('active');
+  });
 
   // If the count down is finished, write some text
   if (distance < 0) {
