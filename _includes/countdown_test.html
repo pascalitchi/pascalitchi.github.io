@@ -28,13 +28,15 @@
   }
 
   .bloc-time {
+    text-align: center;
     margin: 0 10px;
   }
 
   .count-title {
     font-size: 18px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     color: #333;
+    display: block; /* Display count titles as block-level elements */
   }
 
   .figure {
@@ -49,61 +51,12 @@
     border-radius: 5px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    color: #333; /* Set text color for foreground digits */
   }
 
-  .top, .bottom, .top-back, .bottom-back {
-    position: absolute;
-    width: 100%;
-    height: 50%;
-    transform-style: preserve-3d;
-    transition: transform 0.8s;
-    top: 50%;
-    transform: translateY(-50%);
+  /* Adjustments for the position of count titles */
+  .count-title + .figure {
+    margin-top: 10px; /* Add margin to separate count titles and digit boxes */
   }
-
-  .figure.active .top, .figure.active .bottom {
-    transform: translateY(-50%);
-  }
-
-  .top {
-    transform-origin: top;
-    backface-visibility: hidden;
-  }
-
-  .bottom {
-    bottom: 0;
-    transform-origin: bottom;
-    backface-visibility: hidden;
-  }
-
-  .top-back, .bottom-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.7);
-    backface-visibility: hidden;
-    transform: rotateX(180deg);
-  }
-
-  .top.active .top-back, .bottom.active .bottom-back {
-    transform: rotateX(0deg) translateY(-100%);
-  }
-
-    /* Set the height and top to 50% for vertical centering */
-    .top.active, .bottom.active, .top-back.active, .bottom-back.active {
-        top: 50%;
-        height: 50%;
-    }
-
-    /* Set the transform to center the content vertically and horizontally */
-    .top.active, .top-back.active {
-        transform: translateY(-50%);
-    }
-
-    .bottom.active, .bottom-back.active {
-        transform: translateY(50%);
-    }
 
 </style>
 
