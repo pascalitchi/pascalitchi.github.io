@@ -881,7 +881,7 @@ body {
     width: 60%; /* Adjust based on preference */
     padding: 10px 20px;
     border: 2px solid #ccc; /* Style the border as you like */
-    border-radius: 3px; /* This makes the input oval-shaped */
+    border-radius: 30px; /* This makes the input oval-shaped */
     outline: none;
 }
 
