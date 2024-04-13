@@ -272,7 +272,7 @@ header {
     background-image: url('{{ site.baseurl }}/img/header-bg.jpg');
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: cover; /* Updated to cover */
+    background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -663,7 +663,7 @@ section h3.section-subheading {
 
 section#contact {
     /* background-color: #222; */
-    background-color: rgba(34, 34, 34, 0.5); /* Adjust the last value (0.5) for transparency */
+    background-color: rgba(34, 34, 34, 0.3); /* Adjust the last value (0.5) for transparency */
     /* background-image: url('{{ site.baseurl }}/img/map-image.png'); */
     background-image: url('{{ site.baseurl }}/img/other_photo.jpg');
     background-position: center;
