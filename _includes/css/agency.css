@@ -877,25 +877,25 @@ body {
     padding: 20px 0; /* Adjust padding as needed */
 }
 
-input[type="text"] {
+#about .input[type="text"] {
     width: 60%; /* Adjust based on preference */
     padding: 10px 20px;
     border: 2px solid #ccc; /* Style the border as you like */
-    border-radius: 30px; /* This makes the input oval-shaped */
+    border-radius: 3px; /* This makes the input oval-shaped */
     outline: none;
 }
 
-button {
+#about .button {
     padding: 10px 20px;
     margin-left: 10px;
     border: none;
     background-color: #1F3246;
     color: white;
     cursor: pointer;
-    border-radius: 15px; /* Slightly rounded corners for the button */
+    border-radius: 3px; /* Slightly rounded corners for the button */
 }
 
-button:hover {
+#about .button:hover {
     background-color: #D2DBDF;
 }
 
