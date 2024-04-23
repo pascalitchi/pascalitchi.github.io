@@ -1,8 +1,8 @@
 # Color settings (hex-codes without the leading hash-tag)
 color:
-  primary: D2DBDF #fed136 yellow
-  secondary: BCBFB2 #fec503 yellow   
-  secondary-dark: 1F3246 #333 dark grey
+  primary: D2DBDF #3 very light blue
+  secondary: BCBFB2 #5 light green
+  secondary-dark: 1F3246 #1 dark blue
   muted: 777 #grey
 
 # Font Families
