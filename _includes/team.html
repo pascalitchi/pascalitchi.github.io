@@ -52,6 +52,7 @@
     border-radius: 5px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    transition: transform 0.5s ease; /* Add transition for smooth flip effect */
   }
 
   /* Adjustments for the position of count titles */
@@ -193,6 +194,19 @@ var x = setInterval(function() {
     document.getElementById("countdown").innerHTML = "Wedding celebration time!";
   }
 }, 1000);
+
+// Function to perform the flip animation
+function flip(element, newValue) {
+  var currentValue = element.textContent;
+  if (currentValue !== newValue.toString()) {
+    element.textContent = newValue;
+    element.classList.remove('active'); // Remove active class to reset animation
+    setTimeout(function() {
+      element.classList.add('active'); // Add active class to trigger animation
+    }, 50); // Delay for a short moment before adding the class
+  }
+}
+
 </script>
 
 </body>
