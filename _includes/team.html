@@ -170,18 +170,19 @@ var x = setInterval(function() {
   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-  // Update the countdown numbers
-  document.querySelector(".days .days-1 .top").textContent = Math.floor(days / 10);
-  document.querySelector(".days .days-2 .top").textContent = days % 10;
+  // Update the countdown numbers with flip effect
+  flip(document.querySelector(".days .days-1 .top"), Math.floor(days / 10));
+  flip(document.querySelector(".days .days-2 .top"), days % 10);
 
-  document.querySelector(".hours .hours-1 .top").textContent = Math.floor(hours / 10);
-  document.querySelector(".hours .hours-2 .top").textContent = hours % 10;
+  flip(document.querySelector(".hours .hours-1 .top"), Math.floor(hours / 10));
+  flip(document.querySelector(".hours .hours-2 .top"), hours % 10);
 
-  document.querySelector(".min .min-1 .top").textContent = Math.floor(minutes / 10);
-  document.querySelector(".min .min-2 .top").textContent = minutes % 10;
+  flip(document.querySelector(".min .min-1 .top"), Math.floor(minutes / 10));
+  flip(document.querySelector(".min .min-2 .top"), minutes % 10);
 
-  document.querySelector(".sec .sec-1 .top").textContent = Math.floor(seconds / 10);
-  document.querySelector(".sec .sec-2 .top").textContent = seconds % 10;
+  flip(document.querySelector(".sec .sec-1 .top"), Math.floor(seconds / 10));
+  flip(document.querySelector(".sec .sec-2 .top"), seconds % 10);
+
 
   // Add the active class to the current countdown numbers
   document.querySelectorAll('.top, .bottom, .top-back, .bottom-back').forEach(function(element) {
