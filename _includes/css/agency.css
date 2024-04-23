@@ -269,7 +269,8 @@ header {
     text-align: center;
     color: #fff;
     background-attachment: scroll;
-    background-image: url('{{ site.baseurl }}/img/header-bg.jpg');
+    background-image: url('{{ site.baseurl }}/img/Pascal_Emily_62.jpeg');
+    /* background-image: url('{{ site.baseurl }}/img/header-bg.jpg'); */
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
