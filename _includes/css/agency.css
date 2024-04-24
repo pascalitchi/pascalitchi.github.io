@@ -234,6 +234,24 @@ fieldset[disabled] .btn-xl.active {
     background-color: #{{ site.data.template.color.secondary }};
 }
 
+/* Style for the dropdown menu */
+.navbar-default .navbar-nav .open .dropdown-menu {
+    background-color: #222;  /* Dark background for contrast */
+    border-color: #222;      /* Matching border color */
+}
+
+.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #{{ site.data.template.color.primary }}; /* White text color for visibility */
+    /* color: #fff;  White text color for visibility */
+}
+
+.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+.navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    background-color: #222;  /* Slightly lighter background on hover */
+    color: #{{ site.data.template.color.primary }}; /* Dark grey text on hover for better visibility */
+    /* color: #ddd;  Dark grey text on hover for better visibility */
+}
+
 @media(min-width:768px) {
     .navbar-default {
         padding: 25px 0;
