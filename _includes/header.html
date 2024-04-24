@@ -27,13 +27,16 @@
                     <li>
                         <a class="page-scroll" href="#contact">RSVP</a>
                     </li>
-                    <li class="dropdown">
+                    <li>
+                        <a href="#" id="language-toggle">Français</a>
+                    </li>
+                    <!-- <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Language<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="/index.html">English</a></li>
                             <li><a href="/index-fr.html">Français</a></li>
                         </ul>
-                    </li>    
+                    </li>     -->
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -53,3 +56,37 @@
             </div>
         </div>
     </header>
+
+    <!-- language toggle function -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var languageToggle = document.getElementById('language-toggle');
+            var currentLang = window.location.pathname.includes('-fr.html') ? 'fr' : 'en';
+        
+            // Set the toggle text based on current language
+            languageToggle.textContent = currentLang === 'en' ? 'Français' : 'English';
+        
+            languageToggle.addEventListener('click', function() {
+                var newPath = currentLang === 'en'
+                    ? window.location.pathname.replace('.html', '-fr.html') // Switch to French
+                    : window.location.pathname.replace('-fr.html', '.html'); // Switch to English
+                window.location.href = newPath;
+            });
+        });
+        </script>
+        
+    
+    <!-- <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var languageToggle = document.getElementById('language-toggle');
+            var currentLang = window.location.pathname.includes('-fr.html') ? 'fr' : 'en';
+        
+            languageToggle.textContent = currentLang === 'en' ? 'Français' : 'English'; // Set initial toggle text
+        
+            languageToggle.addEventListener('click', function() {
+                var newPath = currentLang === 'en' ? window.location.pathname.replace('.html', '-fr.html') : window.location.pathname.replace('-fr.html', '.html');
+                window.location.href = newPath;
+            });
+        });
+        </script> -->
+        
