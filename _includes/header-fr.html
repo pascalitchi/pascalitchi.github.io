@@ -61,9 +61,15 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         var languageToggle = document.getElementById('language-toggle');
+        var currentLang = window.location.pathname.includes('-fr.html') ? 'fr' : 'en';
+    
+        // Set the toggle text based on current language
+        languageToggle.textContent = currentLang === 'en' ? 'Français' : 'English';
     
         languageToggle.addEventListener('click', function() {
-            var newPath = window.location.pathname.replace('-fr.html', '.html');
+            var newPath = currentLang === 'en'
+                ? window.location.pathname.replace('.html', '-fr.html') // Switch to French
+                : window.location.pathname.replace('-fr.html', '.html'); // Switch to English
             window.location.href = newPath;
         });
     });
