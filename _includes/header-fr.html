@@ -61,15 +61,16 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         var languageToggle = document.getElementById('language-toggle');
-        var currentLang = window.location.pathname.includes('-fr.html') ? 'fr' : 'en';
-    
-        // Set the toggle text based on current language
-        languageToggle.textContent = currentLang === 'en' ? 'Français' : 'English';
-    
-        languageToggle.addEventListener('click', function() {
+        if (!languageToggle) {
+            console.error('Language toggle element not found!');
+            return;
+        }
+        languageToggle.addEventListener('click', function(e) {
+            e.preventDefault();  // Prevent the default anchor click behavior
+            var currentLang = window.location.pathname.includes('-fr.html') ? 'fr' : 'en';
             var newPath = currentLang === 'en'
-                ? window.location.pathname.replace('.html', '-fr.html') // Switch to French
-                : window.location.pathname.replace('-fr.html', '.html'); // Switch to English
+                ? window.location.pathname.replace('.html', '-fr.html')
+                : window.location.pathname.replace('-fr.html', '.html');
             window.location.href = newPath;
         });
     });
