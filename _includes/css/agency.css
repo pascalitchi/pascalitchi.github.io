@@ -241,15 +241,13 @@ fieldset[disabled] .btn-xl.active {
 }
 
 .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-    color: #{{ site.data.template.color.primary }}; /* White text color for visibility */
-    /* color: #fff;  White text color for visibility */
+    color: #{{ site.data.template.color.secondary }}; /* Light green text color for visibility */
 }
 
 .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
 .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
     background-color: #222;  /* Slightly lighter background on hover */
-    color: #{{ site.data.template.color.primary }}; /* Dark grey text on hover for better visibility */
-    /* color: #ddd;  Dark grey text on hover for better visibility */
+    color: #{{ site.data.template.color.secondary }}; /* light green text on hover for better visibility */
 }
 
 @media(min-width:768px) {
