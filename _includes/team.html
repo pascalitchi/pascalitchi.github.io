@@ -5,40 +5,40 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Countdown Timer</title>
 <style>
-  body {
+body {
     font-family: Arial, sans-serif;
     background-color: #f2f2f2;
-  }
+}
 
-  .wrap {
+.wrap {
     text-align: center;
     margin-top: 50px;
-  }
+}
 
-  h1 {
+h1 {
     font-size: 40px;
     color: #333;
-  }
+}
 
-  .countdown {
+.countdown {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 30px;
-  }
+}
 
-  .bloc-time {
+.bloc-time {
     text-align: center;
     margin: 0 10px;
-  }
+}
 
-  .count-title {
+.count-title {
     font-size: 18px;
     margin-bottom: 5px;
     color: #333;
-  }
+}
 
-  .figure {
+.figure {
     position: relative;
     width: 50px;
     height: 70px;
@@ -46,147 +46,106 @@
     border-radius: 5px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-  }
+    transition: transform 0.7s ease-out;
+}
 
-  .top, .bottom, .top-back, .bottom-back {
+.top, .bottom {
     display: block;
     position: absolute;
     width: 100%;
     height: 50%;
-    line-height: 35px;
+    line-height: 70px;
     background: white;
-    transition: transform 0.5s ease;
+    transition: transform 0.7s ease-out;
     overflow: hidden;
-  }
+}
 
-  .top, .top-back {
+.top {
     top: 0;
     transform-origin: bottom;
-  }
+}
 
-  .bottom, .bottom-back {
+.bottom {
     bottom: 0;
     transform-origin: top;
-  }
+}
 
-  .top-back, .bottom-back {
-    background: #ddd;
-    z-index: 2;
-  }
-
-  .active .top, .active .bottom {
-    transform: rotateX(-180deg);
-  }
-
-  .active .top-back, .active .bottom-back {
-    transform: rotateX(180deg);
-  }
-</style>  
+.top-back, .bottom-back {
+    display: none;
+}
+</style>
 </head>
 <body>
 <div class="wrap">  
   <h1><strong>JOIN US TO CELEBRATE OUR WEDDING IN</strong></h1>
-
   <div class="countdown">
-    <!-- Repeat this block for days, hours, minutes, seconds -->
-    <div class="bloc-time days">
-        <span class="count-title">Days</span>
-        <div class="figure days days-1 active">
-          <span class="top">0</span>
-          <span class="bottom"></span>
-          <span class="top-back"></span>
-          <span class="bottom-back"></span>
-        </div>
-        <div class="figure days days-2 active">
-          <span class="top">0</span>
-          <span class="bottom"></span>
-          <span class="top-back"></span>
-          <span class="bottom-back"></span>
-        </div>
-      </div>
-
-      <div class="bloc-time hours">
-        <span class="count-title">Hours</span>
-        <div class="figure hours hours-1 active">
-          <span class="top">0</span>
-          <span class="bottom"></span>
-          <span class="top-back"></span>
-          <span class="bottom-back"></span>
-        </div>
-        <div class="figure hours hours-2 active">
-          <span class="top">0</span>
-          <span class="bottom"></span>
-          <span class="top-back"></span>
-          <span class="bottom-back"></span>
-        </div>
-      </div>
-
-      <div class="bloc-time min">
-        <span class="count-title">Minutes</span>
-        <div class="figure min min-1 active">
-          <span class="top">0</span>
-          <span class="bottom"></span>
-          <span class="top-back"></span>
-          <span class="bottom-back"></span>
-        </div>
-        <div class="figure min min-2 active">
-          <span class="top">0</span>
-          <span class="bottom"></span>
-          <span class="top-back"></span>
-          <span class="bottom-back"></span>
-        </div>
-      </div>            
-      
-    <div class="bloc-time sec">
+    <div class="bloc-time days" data-unit="days">
+      <span class="count-title">Days</span>
+      <div class="figure"><span class="top">0</span><span class="bottom">0</span></div>
+      <div class="figure"><span class="top">0</span><span class="bottom">0</span></div>
+    </div>
+    <div class="bloc-time hours" data-unit="hours">
+      <span class="count-title">Hours</span>
+      <div class="figure"><span class="top">0</span><span class="bottom">0</span></div>
+      <div class="figure"><span class="top">0</span><span class="bottom">0</span></div>
+    </div>
+    <div class="bloc-time min" data-unit="minutes">
+      <span class="count-title">Minutes</span>
+      <div class="figure"><span class="top">0</span><span class="bottom">0</span></div>
+      <div class="figure"><span the="top">0</span><span class="bottom">0</span></div>
+    </div>
+    <div class="bloc-time sec" data-unit="seconds">
       <span class="count-title">Seconds</span>
-      <div class="figure sec sec-1 active">
-        <span class="top">0</span>
-        <span class="bottom"></span>
-        <span class="top-back"></span>
-        <span class="bottom-back"></span>
-      </div>
-      <div class="figure sec sec-2 active">
-        <span class="top">0</span>
-        <span class="bottom"></span>
-        <span class="top-back"></span>
-        <span class="bottom-back"></span>
-      </div>
+      <div class="figure"><span the="top">0</span><span class="bottom">0</span></div>
+      <div class="figure"><span the="top">0</span><span the="bottom">0</span></div>
     </div>
   </div>
 </div>
 
 <script>
-// Set the date we're counting down to
-var countDownDate = new Date("July 27, 2024 13:30:00 GMT+0200").getTime();
+const countdownDate = new Date("July 27, 2024 13:30:00").getTime();
+const countdownElements = {
+    days: document.querySelectorAll('.days .figure .top, .days .figure .bottom'),
+    hours: document.querySelectorAll('.hours .figure .top, .hours .figure .bottom'),
+    minutes: document.querySelectorAll('.min .figure .top, .min .figure .bottom'),
+    seconds: document.querySelectorAll('.sec .figure .top, .sec .figure .bottom')
+};
 
-// Update the count down every 1 second
-var x = setInterval(function() {
-  // Get today's date and time
-  var now = new Date().getTime();
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
-  // Time calculations for days, hours, minutes, and seconds
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-  // Update the countdown numbers with flip effect
-  flip(document.querySelector(".sec .sec-1"), Math.floor(seconds / 10));
-  flip(document.querySelector(".sec .sec-2"), seconds % 10);
-  // If the count down is finished, write some text
-  if (distance < 0) {
-    clearInterval(x);
-    document.querySelector(".wrap").innerHTML = "<h1>Wedding celebration time!</h1>";
-  }
-}, 1000);
+function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = countdownDate - now;
 
-function flip(element, newValue) {
-  var currentValue = element.textContent;
-  if (currentValue != newValue.toString()) {
-    element.textContent = newValue;
-    element.parentElement.classList.add('active');
-    setTimeout(function() {
-      element.parentElement.classList.remove('active');
-    }, 500);
-  }
+    if (distance < 0) {
+        clearInterval(updateInterval);
+        document.querySelector(".wrap h1").textContent = "Wedding celebration time!";
+        return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    updateUnit(countdownElements.days, days);
+    updateUnit(countdownElements.hours, hours);
+    updateUnit(countdownElements.minutes, minutes);
+    updateUnit(countdownElements.seconds, seconds);
 }
+
+function updateUnit(elements, value) {
+    const tens = Math.floor(value / 10);
+    const ones = value % 10;
+    if (elements[0].textContent != tens) {
+        elements[0].textContent = tens;
+        elements[1].textContent = tens; // Update bottom for flip effect
+    }
+    if (elements[2].textContent != ones) {
+        elements[2].textContent = ones;
+        elements[3].textContent = ones; // Update bottom for flip effect
+    }
+}
+
+const updateInterval = setInterval(updateCountdown, 1000);
 </script>
 </body>
 </html>
