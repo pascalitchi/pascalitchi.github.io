@@ -305,7 +305,7 @@ header .intro-text .intro-lead-in {
     margin-bottom: 5%;
     font-family: {{ site.data.template.font.secondary }};
     font-size: 22px;
-    /* font-style: italic; */
+    font-style: normal;
     line-height: 22px;
 }
 
@@ -318,7 +318,7 @@ header .intro-text .intro-heading {
     line-height: 50px;
 }
 
-/* @media(min-width:768px) {
+@media(min-width:768px) {
     header .intro-text {
         padding-top: 300px;
         padding-bottom: 200px;
@@ -340,9 +340,9 @@ header .intro-text .intro-heading {
         font-weight: 700;
         line-height: 75px;
     }
-} */
+}
 
-/* section {
+section {
     padding: 100px 0;
 }
 
@@ -365,17 +365,17 @@ section h3.section-subheading {
     section {
         padding: 150px 0;
     }
-} */
+}
 
 #services h2.section-heading {
     text-transform: none;
 }
 
 
-/* .service-heading {
+.service-heading {
     margin: 15px 0;
     text-transform: none;
-} */
+}
 
 #portfolio .portfolio-item {
     right: 0;
