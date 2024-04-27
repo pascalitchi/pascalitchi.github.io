@@ -7,5 +7,10 @@ color:
 
 # Font Families
 font:
-  primary: 'Montserrat, "Helvetica Neue",Helvetica,Arial,sans-serif'
-  secondary: '"Droid Serif", "Helvetica Neue", Helvetica,Arial,sans-serif'
+  primary: 'Karla'
+  secondary: 'Karla'
+  # primary: 'Montserrat, "Helvetica Neue",Helvetica,Arial,sans-serif'
+  # secondary: '"Droid Serif", "Helvetica Neue", Helvetica,Arial,sans-serif'
+
+
+# Karla -> main font
