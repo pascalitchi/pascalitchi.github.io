@@ -6,6 +6,12 @@ title: Pascal & Emily
 email: p.cuendet@gmail.com
 description: "Emily and Pascal are getting married!"
 
+languages: ["en", "fr"]
+exclude_from_localizations: ["assets", "CNAME"]
+defaultLang: en
+languageNames:
+  fr: Français
+  en: English
 
 # Team names, titles and social links
 people:
