@@ -298,7 +298,7 @@ header {
     }
 
 header .intro-text {
-    padding-top: 70%;
+    padding-top: 60%;
     padding-bottom: 5%;
 }
 
@@ -326,7 +326,7 @@ header .intro-text .intro-heading {
     }
 
     header .intro-text .intro-lead-in {
-        margin-bottom: 25px;
+        margin-bottom: 5%;
         font-family: {{ site.data.template.font.secondary }};
         font-size: 40px;
         font-style: normal;
@@ -334,7 +334,7 @@ header .intro-text .intro-heading {
     }
 
     header .intro-text .intro-heading {
-        margin-bottom: 50px;
+        margin-bottom: 5%;
         text-transform: uppercase;
         font-family: {{ site.data.template.font.primary }};
         font-size: 75px;
