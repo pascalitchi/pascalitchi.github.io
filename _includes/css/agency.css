@@ -125,7 +125,7 @@ fieldset[disabled] .btn-primary.active {
     border-radius: 3px;
     text-transform: uppercase;
     font-family: {{ site.data.template.font.primary }};
-    font-size: 18px;
+    font-size: 22px;
     font-weight: 700;
     color: #fff;
     background-color: #{{ site.data.template.color.primary }};
@@ -326,7 +326,7 @@ header .intro-text .intro-heading {
     }
 
     header .intro-text .intro-lead-in {
-        margin-bottom: 5%;
+        /* margin-bottom: 5%; */
         font-family: {{ site.data.template.font.secondary }};
         font-size: 40px;
         font-style: normal;
@@ -334,7 +334,7 @@ header .intro-text .intro-heading {
     }
 
     header .intro-text .intro-heading {
-        margin-bottom: 5%;
+        /* margin-bottom: 5%; */
         text-transform: uppercase;
         font-family: {{ site.data.template.font.primary }};
         font-size: 75px;
