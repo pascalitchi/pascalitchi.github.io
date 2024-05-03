@@ -211,6 +211,7 @@ fieldset[disabled] .btn-xl.active {
     text-transform: uppercase;
     font-family: {{ site.data.template.font.primary }};
     font-weight: 400;
+    font-size: 20px;
     letter-spacing: 1px;
     color: #fff;
     -webkit-transition: all ease .35s;
